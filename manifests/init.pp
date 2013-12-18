@@ -59,7 +59,10 @@ $vhost_root = "/var/www/${name}"
 $vhost_root = $documentroot
 }
 file { $vhost_root : ensure => "directory",
+       source => "puppet:///modules/apache2/${vhost_domain}",
                      }
+
+
 file { "/var/log/apache2/${name}-error_log":
         mode => "0644", owner => 33, group => 0,
         ensure => "present",
@@ -71,7 +74,7 @@ file { "/var/log/apache2/${name}-access_log":
 }
 file { "/etc/apache2/sites-available/${vhost_domain}.conf":
 content => template("apache2/vhost.erb"),
-#require => File["/etc/apache2/conf.d/name-based-vhosts.conf" ],
+#require => File["/etc/apache2/conf.d/${vhost_domain}-vhosts.conf" ],
 notify => Exec["enable-${vhost_domain}-vhost"],
 }
 exec { "enable-${vhost_domain}-vhost":
