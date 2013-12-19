@@ -42,7 +42,7 @@ define apache2::vhost (
   $docroot_group  = 'root',
   $port           = '80',
   $ssl            = false,
-  $template       = 'apache/virtualhost/vhost.conf.erb',
+  $template       = 'apache2/templates/vhost.erb',
   $priority       = '50',
   $serveraliases  = '',
   $enable         = true ) {

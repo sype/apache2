@@ -11,3 +11,6 @@ Options +Includes +Indexes +FollowSymLinks
 AllowOverride all
 </Directory>
 </VirtualHost>
+<VirtualHost *:80>
+Redirect 301 / http://<%= vhost_domain %>/
+</VirtualHost>

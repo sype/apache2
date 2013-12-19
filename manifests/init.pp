@@ -59,7 +59,7 @@ $vhost_root = "/var/www/${name}"
 $vhost_root = $documentroot
 }
 file { $vhost_root : ensure => "directory",
-       source => "puppet:///modules/apache2/${vhost_domain}",
+#       source => "puppet:///modules/apache2/${vhost_domain}",
                      }
 
 

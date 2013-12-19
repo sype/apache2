@@ -12,6 +12,5 @@ AllowOverride all
 </Directory>
 </VirtualHost>
 <VirtualHost *:80>
-ServerName www.<%= vhost_domain %>
 Redirect 301 / http://<%= vhost_domain %>/
 </VirtualHost>
